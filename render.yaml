@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: threadsave-kr
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: NODE_ENV
+        value: production
+      - key: SITE_URL
+        sync: false
+      - key: THREADS_RESOLVER_URL
+        sync: false
+      - key: THREADS_RESOLVER_API_KEY
+        sync: false
